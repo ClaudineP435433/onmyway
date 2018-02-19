@@ -1,0 +1,29 @@
+.card-restaurant {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+
+.card-delivery-guy {
+  height: 40px;
+
+}
+
+.card-user {
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
