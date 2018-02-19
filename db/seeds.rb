@@ -1,6 +1,19 @@
 puts "start seed"
 
 Restaurant.destroy_all
+User.destroy_all
+
+10.times do
+  user = User.new(
+  email: Faker::Internet.email,
+  password: "123456",
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  address: Faker::Address.street_address,
+  )
+  user.save!
+end
+
 restaurants = [
   {
     name: "Mc donalds",
@@ -40,5 +53,7 @@ restaurants = [
 ]
 
 restaurants.each { |restaurant| Restaurant.create(restaurant) }
+
+
 
 puts "end seed"
