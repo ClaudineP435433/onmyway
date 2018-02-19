@@ -3,6 +3,6 @@ class Category < ApplicationRecord
   CATEGORIES = ["Kebab", "Chinese", "Italian", "French", "Burger", "Japanese", "Snack Bar", "Indian"]
   validates :name, inclusion: {
     in: CATEGORIES,
-    message: "#{value} is not a valid category"
+    message: "%{value} is not a valid category"
   }
 end
