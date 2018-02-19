@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  background-color: rgba(250,250,250,1);
+}
+
+.map {
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important;
+  background-color: green;
+  height: 150px;
+  top: 0 !important;
+}
