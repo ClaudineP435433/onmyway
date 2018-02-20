@@ -1,6 +1,11 @@
 .wrapper {
   display: flex;
-  background-color: rgba(250,250,250,1);
+  background-color: #dddddd40;
+}
+
+.wrapper2 {
+  display: flex;
+  justify-content: center;
 }
 
 .map {
@@ -10,4 +15,14 @@
   background-color: green;
   height: 150px;
   top: 0 !important;
+}
+
+.delivery-container {
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
+  margin-top: -70px;
+  width: 70%;
+  height: 40vh;
+  padding: 20px;
 }

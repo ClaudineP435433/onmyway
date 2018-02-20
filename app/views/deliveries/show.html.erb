@@ -1,8 +1,25 @@
-<div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @delivery.restaurant.picture %>')">
-  <div class="banner-content">
-    <h1><%= @delivery.restaurant.name %></h1>
-    <p><%= @delivery.restaurant.category.name %></p>
+
+
+  <div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @delivery.restaurant.picture %>')">
+    <div class="banner-content">
+      <h1><%= @delivery.restaurant.name %></h1>
+      <p><%= @delivery.restaurant.category.name %></p>
+    </div>
+  </div>
+
+<div class="wrapper2">
+  <div class="delivery-container">
+    <div class="card-booking">
+
+    </div>
+    <div class="card-delivery text-center">
+      <h6>This delivery closed at :</h6>
+      <h4 id="delivery-space"><%= @delivery.closing_at.strftime("%m/%d/%Y at %I:%M%p") %></h4>
+      <h6>Delivery will be done by :</h6>
+      <div class="card-delivery-guy">
+        <h4><%= "#{@delivery.user.first_name} #{@delivery.user.last_name}" %></h4>
+        <%= image_tag "http://www.legorafi.fr/wp-content/uploads/2016/09/iStock_84615769_SMALL-e1474531457886-820x410.jpg", class: "card-user" %>
+      </div>
+    </div>
   </div>
 </div>
-
-
