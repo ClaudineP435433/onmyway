@@ -18,10 +18,16 @@ class BookingsController < ApplicationController
     @booking.delivery = @delivery
     @booking.user = current_user
     if @booking.save
-      redirect_to delivery_path(params[:delivery_id])
+      redirect_to bookings_path
     else
-      render "deliveries/show"
+      render :new
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
   end
 
 private
