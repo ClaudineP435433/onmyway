@@ -16,6 +16,14 @@ class DeliveriesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @restaurant = @delivery.restaurant
+
+    @markers = [
+      {
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude
+      }
+    ]
   end
 
   def new
