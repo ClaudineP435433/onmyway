@@ -57,6 +57,7 @@
   right: 10px;
   top: 10px;
   width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -94,6 +95,11 @@
 
 .card-my-booking {
   display: flex;
+}
+
+.card-my-delivery {
+  display: flex;
+  height: 30vh;
 }
 
 .card-my-booking-resto {
@@ -138,6 +144,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  button {
+    border: none;
+  }
+}
+
+.card-my-delivery-resto {
+
+  width: 300px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.card-text-white {
+  color: white;
+  text-shadow: 0 0 3px rgba(10,10,10,0.2);
+}
+
+.card-my-delivery-booking {
+  display: flex;
+  align-items: center;
+
+}
+
+.card-my-delivery-details {
+  flex: 1;
+  padding: 10px;
+}
+
+.card-my-delivery-button {
+  display: flex;
+  align-items: center;
+  justify-content: right;
   button {
     border: none;
   }
