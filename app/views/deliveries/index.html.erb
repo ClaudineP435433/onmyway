@@ -16,16 +16,18 @@
             <div class="card-restaurant" style="background-image: url('<%= image_path delivery.restaurant.picture %>')">
               <div class="card-description">
                 <h2><%= delivery.restaurant.name %></h2>
+                <p><%= delivery.restaurant.category.name %></p>
               </div>
             </div>
 
             <div class="card-delivery-guy">
-              <p><%= delivery.restaurant.category.name %></p>
-              <p>Book before :</p>
-              <h3><%= delivery.closing_at %></h3>
+              <div class="card-delivery-text">
+                <p>Book before :</p>
+                <h5><%= delivery.closing_at %></h5>
+              </div>
               <%= image_tag "http://www.legorafi.fr/wp-content/uploads/2016/09/iStock_84615769_SMALL-e1474531457886-820x410.jpg", class: "card-user" %>
             </div>
-
+            <%= link_to "", delivery, class: "delivery-link" %>
           </div>
         </div>
       <% end %>
