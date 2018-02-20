@@ -17,8 +17,10 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://www.legorafi.fr/wp-content/uploads/2016/09/iStock_84615769_SMALL-e1474531457886-820x410.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+          <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"  %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -41,9 +43,9 @@
       <!-- Login link (when logged out) -->
       <%= link_to "search bar to implement", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
     <% end %>
   </div>
+
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
