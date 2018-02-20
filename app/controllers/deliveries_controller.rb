@@ -4,6 +4,14 @@ class DeliveriesController < ApplicationController
 
   def index
     @deliveries = Delivery.all
+    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+
+    @markers = @restaurants.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
   end
 
   def show
