@@ -1,6 +1,9 @@
 .card {
   background-color: white;
   margin: 10px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  position: relative;
 }
 
 .delivery-link {
@@ -24,6 +27,7 @@
   position: relative;
 }
 
+
 .card-description {
   position: absolute;
   bottom: 10px;
@@ -31,6 +35,10 @@
 }
 .card-description h2 {
   font-size: 24px;
+}
+
+.card-description h4 {
+  font-size: 16px;
 }
 .card-description p {
   font-size: 14px;
@@ -82,4 +90,43 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.card-my-booking {
+  display: flex;
+
+}
+
+.card-my-booking-resto {
+  width: 70px;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.card-my-booking-resto-text {
+  padding-left: 15px;
+  width: 200px;
+
+}
+
+.card-my-booking-content {
+  flex-grow: 1;
+  padding: 15px;
+  border-left: 1px dotted rgba(10,10,10,0.1);
+  border-right: 1px dotted rgba(10,10,10,0.1);
+  display: flex;
+  align-items: center;
+}
+
+.card-my-booking-status {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    font-size: 10px ;
+    font-weight: lighter;
+    margin-top: 15px;
+  }
 }

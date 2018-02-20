@@ -1,1 +1,33 @@
-MY Index Booking
+<div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://cdn.vox-cdn.com/thumbor/KJ3Ravb-dKGIiYMlFVsb8zvWppo=/0x0:960x640/1200x800/filters:focal(404x244:556x396)/cdn.vox-cdn.com/uploads/chorus_image/image/54972253/15894350_581713975368307_9057135967199034580_n.0.png')">
+    <div class="banner-content">
+      <h1>My Bookings</h1>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="card">
+          <div class="card-my-booking">
+            <div class="card-my-booking-resto" style="background-image: url('<%= image_path booking.delivery.restaurant.picture %>')">
+            </div>
+            <div class="card-my-booking-resto-text">
+                <h4><%= booking.delivery.restaurant.name %></h4>
+                <p><%= booking.delivery.restaurant.category.name %></p>
+            </div>
+            <div class="card-my-booking-content">
+                <h4><%= booking.content %></h4>
+            </div>
+            <div class="card-my-booking-status">
+              <div class="<%= delivery_color_status(booking.delivery.status) %>">
+                <%= booking.delivery.status.capitalize %>
+              </div>
+              <p><%= booking.delivery.closing_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
