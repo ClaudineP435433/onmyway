@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :my do
     resources :deliveries, only: [:index] do
       member do
-        post 'done'
+        post :done
       end
     end
   end

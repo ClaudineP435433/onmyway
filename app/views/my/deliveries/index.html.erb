@@ -1,5 +1,59 @@
 <div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://cdn.vox-cdn.com/thumbor/KJ3Ravb-dKGIiYMlFVsb8zvWppo=/0x0:960x640/1200x800/filters:focal(404x244:556x396)/cdn.vox-cdn.com/uploads/chorus_image/image/54972253/15894350_581713975368307_9057135967199034580_n.0.png')">
-    <div class="banner-content">
-      <h1>My Deliveries</h1>
-    </div>
+  <div class="banner-content">
+    <h1>My Deliveries</h1>
   </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @deliveries.each do |delivery| %>
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="card">
+          <div class="card-my-delivery">
+
+            <div class="card-my-delivery-resto" style="background-image: url('<%= image_path delivery.restaurant.picture %>')">
+              <div class="card-description card-text-white">
+                <h2><%= delivery.restaurant.name %></h2>
+                <p><%= delivery.restaurant.category.name %></p>
+              </div>
+            </div>
+
+
+            <div class="card-my-delivery-details">
+                <% delivery.bookings.each do |booking| %>
+                    <div class="card-my-delivery-booking">
+                      <div class="card-my-delivery-booking-avatar">
+                        <%= cl_image_tag booking.user.picture, class: "card-user" %>
+                        <p><%= "#{booking.user.first_name} #{booking.user.last_name}" %></p>
+                      </div>
+                      <div class="card-my-delivery-booking-content">
+                        <h6><%= booking.content %></h6>
+                      </div>
+                      <div class="card-my-delivery-booking-created">
+                        <h6><%= booking.created_at.strftime("%m/%d/%Y at %I:%M%p") %></h6>
+                      </div>
+                    </div>
+
+                <% end %>
+
+                <div class="card-my-delivery-button">
+                  <div class="card-my-booking-status">
+                    <div class="<%= delivery_color_status(delivery.status) %>">
+                      <%= delivery.status.capitalize %>
+                    </div>
+                  </div>
+
+                  <%= button_to done_my_delivery_path(delivery), method: :done, data: { confirm: "Do you confirm the delivery?" } do %>
+                      Delivered ? <i class="far fa-check-circle text-success"></i>
+                  <% end %>
+                </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -13,4 +13,5 @@ class Delivery < ApplicationRecord
       "in progress"
     end
   end
+
 end
