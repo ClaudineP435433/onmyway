@@ -15,10 +15,13 @@ class DeliveriesController < ApplicationController
 
   def create
     @delivery = Delivery.new(delivery_params)
+    @delivery.user = current_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @delivery.restaurant = @restaurant
     if @delivery.save
       redirect_to @delivery
     else
-      render :new
+      render "deliveries/show"
     end
   end
 
@@ -31,5 +34,4 @@ private
   def delivery_params
     params.require(:delivery).permit(:closing_at, :delivered_at, :restaurant_id)
   end
-
 end
