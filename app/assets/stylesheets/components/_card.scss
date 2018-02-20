@@ -1,8 +1,9 @@
 .card {
   background-color: white;
   margin: 10px;
+}
 
-  .delivery-link {
+.delivery-link {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -13,7 +14,6 @@
       background: rgba(255, 255, 255, 0.4);
     }
   }
-}
 
 .card-restaurant {
   height: 175px;
@@ -72,12 +72,14 @@
   padding: 15px;
   width: 500px;
   flex-grow: 1;
+
+  h3 {
+    margin-top: 5px;
+  }
 }
 
-.card-delivery-guy{
+.card-delivery-test{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: -30px;
-
 }
