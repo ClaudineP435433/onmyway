@@ -20,6 +20,10 @@
         <div class="dropdown">
           <%= image_tag "http://www.legorafi.fr/wp-content/uploads/2016/09/iStock_84615769_SMALL-e1474531457886-820x410.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li> <%= link_to "My deliveries", my_deliveries_path  %>
+            </li>
+            <li> <%= link_to "My bookings", bookings_path  %>
+            </li>
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
