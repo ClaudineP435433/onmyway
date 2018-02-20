@@ -25,6 +25,11 @@
               </div>
               <p><%= booking.delivery.closing_at.strftime("%m/%d/%Y at %I:%M%p") %></p>
             </div>
+            <div class="card-my-booking-trash">
+              <%= button_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="far fa-trash-alt test3"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
