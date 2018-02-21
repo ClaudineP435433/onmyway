@@ -7,9 +7,8 @@
         <%= simple_form_for @delivery do |f| %>
           <%= f.error_notification %>
           <%= f.association :restaurant, prompt: "Choose a restaurant", required: true %>
-          <%= f.input :closing_at %>
+          <%= f.input :closing_at, start_year: Date.today.year, selected: DateTime.now %>
           <%= f.button :submit %>
-
       <% end %>
       </div>
     </div>
