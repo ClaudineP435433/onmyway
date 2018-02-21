@@ -1,15 +1,17 @@
+<div class="wrapper-new-delivery-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <h2>Add a delivery</h2>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <h2>Add a delivery</h2>
+        <%= simple_form_for @delivery do |f| %>
+          <%= f.error_notification %>
+          <%= f.association :restaurant, prompt: "Choose a restaurant", required: true %>
+          <%= f.input :closing_at %>
+          <%= f.button :submit %>
 
-      <%= simple_form_for @delivery do |f| %>
-        <%= f.error_notification %>
-        <%= f.association :restaurant, prompt: "Choose a restaurant", required: true %>
-        <%= f.input :closing_at %>
-        <%= f.button :submit %>
-
-    <% end %>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>
