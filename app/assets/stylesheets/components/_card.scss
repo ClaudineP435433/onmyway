@@ -164,7 +164,12 @@
 .card-my-delivery-booking {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+}
 
+.card-my-delivery-bookings {
+  height: 90%;
+  border-bottom: 1px dotted rgba(10,10,10,0.1);
 }
 
 .card-my-delivery-details {
@@ -172,10 +177,33 @@
   padding: 10px;
 }
 
+
+
+.card-my-delivery-booking-avatar {
+  width: 20%;
+  text-align: center;
+  p{
+    font-weight: lighter;
+    font-size: 8px;
+  }
+}
+
+.card-my-delivery-booking-content {
+  flex: 1;
+}
+
+
+.card-my-delivery-booking-created {
+  width: 20%;
+  text-align: center;
+}
+
 .card-my-delivery-button {
   display: flex;
   align-items: center;
   justify-content: right;
+  height: 10%;
+  padding-top: 6px;
   button {
     border: none;
   }

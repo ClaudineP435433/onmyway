@@ -20,11 +20,12 @@
 
 
             <div class="card-my-delivery-details">
+              <div class="card-my-delivery-bookings">
                 <% delivery.bookings.each do |booking| %>
                     <div class="card-my-delivery-booking">
                       <div class="card-my-delivery-booking-avatar">
                         <%= cl_image_tag booking.user.picture, class: "card-user" %>
-                        <p><%= "#{booking.user.first_name} #{booking.user.last_name}" %></p>
+                        <p><i> <%= "#{booking.user.first_name} #{booking.user.last_name}" %></i></p>
                       </div>
                       <div class="card-my-delivery-booking-content">
                         <h6><%= booking.content %></h6>
@@ -35,6 +36,7 @@
                     </div>
 
                 <% end %>
+              </div>
 
                 <div class="card-my-delivery-button">
                   <div class="card-my-booking-status">
