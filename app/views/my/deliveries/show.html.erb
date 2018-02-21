@@ -1,12 +1,21 @@
-Delievery guy <%= @user_delivery_guy %>
+  <div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @delivery.restaurant.picture %>')">
+    <div class="banner-content">
+      <h1>Your today delivery is : <%= @restaurant.name %></h1>
+      <p><%= @restaurant.category.name %></p>
+      <p><%= @delivery.closing_at %></p>
+    </div>
+  </div>
 
-Customers
-<% @users_customers.each do |user| %>
-  <%= user %>
-<% end %>
-
-Restaurant  <%= @restaurant %>
-
-
+<div class="container">
+  <div class="card">
+  <h4>Your customers are :</h4>
+  <ul>
+    <% @users_customers.each do |user| %>
+      <li> <%= "#{user.first_name} #{user.last_name} ---> #{user.address}" %> </li>
+    <% end %>
+  </ul>
+</div>
 <div id="map" class="map" style="width: 100%" data-markers="<%= @users_customers_markers.to_json %>">
+</div>
+
 </div>
