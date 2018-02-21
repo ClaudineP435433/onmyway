@@ -10,7 +10,7 @@
       <div class="col-xs-10 col-xs-offset-1">
         <div class="card">
           <div class="card-my-booking">
-            <div class="card-my-booking-resto" style="background-image: url('<%= image_path booking.delivery.restaurant.picture %>')">
+            <div class="card-my-booking-resto" style="background-image: url('<%= cl_image_path booking.delivery.restaurant.picture %>')">
             </div>
             <div class="card-my-booking-resto-text">
                 <h4><%= booking.delivery.restaurant.name %></h4>

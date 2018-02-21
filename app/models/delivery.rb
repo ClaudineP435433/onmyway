@@ -4,6 +4,7 @@ class Delivery < ApplicationRecord
   has_many :bookings, dependent: :destroy
   validates :closing_at, presence: true
 
+
   def status
     if delivered_at.present?
       "done"
