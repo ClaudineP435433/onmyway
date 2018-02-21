@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-my-delivery">
 
-            <div class="card-my-delivery-resto" style="background-image: url('<%= image_path delivery.restaurant.picture %>')">
+            <div class="card-my-delivery-resto" style="background-image: url('<%= cl_image_path delivery.restaurant.picture %>')">
               <div class="card-description card-text-white">
                 <h2><%= delivery.restaurant.name %></h2>
                 <p><%= delivery.restaurant.category.name %></p>
@@ -20,11 +20,12 @@
 
 
             <div class="card-my-delivery-details">
+              <div class="card-my-delivery-bookings">
                 <% delivery.bookings.each do |booking| %>
                     <div class="card-my-delivery-booking">
                       <div class="card-my-delivery-booking-avatar">
                         <%= cl_image_tag booking.user.picture, class: "card-user" %>
-                        <p><%= "#{booking.user.first_name} #{booking.user.last_name}" %></p>
+                        <p><i> <%= "#{booking.user.first_name} #{booking.user.last_name}" %></i></p>
                       </div>
                       <div class="card-my-delivery-booking-content">
                         <h6><%= booking.content %></h6>
@@ -35,6 +36,7 @@
                     </div>
 
                 <% end %>
+              </div>
 
                 <div class="card-my-delivery-button">
                   <div class="card-my-booking-status">
@@ -43,14 +45,13 @@
                     </div>
                   </div>
 
-                  <%= button_to done_my_delivery_path(delivery), method: :done, data: { confirm: "Do you confirm the delivery?" } do %>
-                      Delivered ? <i class="far fa-check-circle text-success"></i>
+                  <% if delivery.status == "in progress" %>
+                    <%= button_to done_my_delivery_path(delivery), method: :done, data: { confirm: "Do you confirm the delivery?" } do %>
+                        Delivered ? <i class="far fa-check-circle text-success"></i>
+                    <% end %>
                   <% end %>
                 </div>
             </div>
-
-
-
           </div>
         </div>
       </div>

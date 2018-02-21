@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <h2>Sign up to <i>On My Way</i></h2>
+      <h2>Sign up to On My Way</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -22,8 +22,6 @@
           <%= f.button :submit, "Sign up" %>
         </div>
       <% end %>
-
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

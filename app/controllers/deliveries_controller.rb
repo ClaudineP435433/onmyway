@@ -16,6 +16,14 @@ class DeliveriesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @restaurant = @delivery.restaurant
+
+    @marker = [
+      {
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude
+      }
+    ]
   end
 
   def new
@@ -23,12 +31,12 @@ class DeliveriesController < ApplicationController
   end
 
   def create
-    @delivery = Delivery.new(delivery_params)
-    @delivery.user = current_user
+    @delivery = current_user.deliveries.new(delivery_params)
+    # @delivery.user = current_user unneeded due to above line syntax
     if @delivery.save
-      redirect_to @delivery
+      redirect_to my_deliveries_path
     else
-      render "deliveries/show"
+      render :new
     end
   end
 
