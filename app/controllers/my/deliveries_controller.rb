@@ -25,7 +25,8 @@ class My::DeliveriesController < ApplicationController
     @users_customers_markers = @users_customers.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude#,
+        lng: user.longitude,
+        color: "#0055ff"
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
@@ -33,6 +34,9 @@ class My::DeliveriesController < ApplicationController
     # pour l'adresse du resto
     @restaurant = @delivery.restaurant
     @restaurant_marker = [{ lat: @restaurant.latitude, lng: @restaurant.longitude }]
+
+
+
   end
 
 
