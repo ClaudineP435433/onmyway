@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-my-delivery">
 
-            <div class="card-my-delivery-resto" style="background-image: url('<%= image_path delivery.restaurant.picture %>')">
+            <div class="card-my-delivery-resto" style="background-image: url('<%= cl_image_path delivery.restaurant.picture %>')">
               <div class="card-description card-text-white">
                 <h2><%= delivery.restaurant.name %></h2>
                 <p><%= delivery.restaurant.category.name %></p>
@@ -48,9 +48,6 @@
                   <% end %>
                 </div>
             </div>
-
-
-
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ class Delivery < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :closing_at, presence: true
+  validates :restaurant_id, presence: true
 
   def status
     if delivered_at.present?

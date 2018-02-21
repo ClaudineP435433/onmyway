@@ -12,57 +12,59 @@ category = ["Kebab", "Chinese", "Italian", "French", "Burger", "Japanese", "Snac
 category.each { |cat| Category.create(name: cat) }
 
 puts "cat ok"
+puts "resto start"
 
 restaurants_data = [
   {
     name: "Mc donalds",
     category_id: Category.first.id,
     address: "40 Avenue Thiers, 33100 Bordeaux",
-    picture: "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2016/02/26/103423796-McPick2-FOF-Header.1910x1000.jpg"
-    },
+    remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519206548/103423796-McPick2-FOF-Header.1910x1000.jpg"
+  },
 
   {
     name: "Pizza nico",
     category_id: Category.second.id,
     address: "115 cours Balguerie Stuttenberg, 33300 bordeaux",
-    picture: "https://image.afcdn.com/recipe/20160519/15342_w600.jpg"
+    remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519206547/15342_w600.jpg"
     },
 
   {
     name: "Chez maitre Tang",
     category_id: Category.third.id,
     address: "5 rue Monge, 75005 paris",
-    picture: "https://hanoitourist.info/wp-content/uploads/2017/01/tet-4.jpg"
+    remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519206548/cuisine-vietnamienne.jpg"
     },
 
   {
     name: "Curry folies",
     category_id: Category.last.id,
     address: "35 Avenue du Mont Riboudet, 76000 Rouen",
-    picture: "https://fthmb.tqn.com/sMS4T7yea_uM00Gg2RAA5ORfiSg=/2121x1414/filters:fill(auto,1)/GettyImages-169944128-587af9fe3df78c17b636d4f2.jpg"
+    remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519206547/GettyImages-169944128-587af9fe3df78c17b636d4f2.jpg"
     },
 
   {
     name: "Le bouchon",
     category_id: Category.second.id,
     address: "32 Boulevard Schloesing, 13009 Marseille",
-    picture: "http://www.unlyondanslacuisine.fr/Wordpress/wp-content/uploads/2014/11/Bouchon-lyonnais.jpg"
+    remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519206496/Bouchon-lyonnais.jpg"
     },
 
   {
     name: "Keboul Wesh",
     category_id: Category.third.id,
     address: "39 Avenue Jean Giono, 13100 Aix-en-Provence",
-    picture: "https://static2.uk.businessinsider.com/image/5a2275e1c1bde0e0548b5701-2000/shutterstock202575529.jpg"
-    },
+    remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519206496/shutterstock202575529.jpg"
+    }
 ]
 
   restaurants_data.each do |resto|
     Restaurant.create!(resto)
   end
 
+puts "end resto"
 
-puts "puts user"
+puts "user"
 
 10.times do
   user = User.new(
@@ -71,6 +73,7 @@ puts "puts user"
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   address: Faker::Address.street_address,
+  remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519145311/m5ltelbmzkr4kc1zz99q.jpg"
   )
   user.save!
 end
