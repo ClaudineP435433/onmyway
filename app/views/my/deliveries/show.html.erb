@@ -1,9 +1,12 @@
 Delievery guy <%= @user_delivery_guy %>
 
-Customers <%=  @users_customers %>
+Customers
+<% @users_customers.each do |user| %>
+  <%= user %>
+<% end %>
 
 Restaurant  <%= @restaurant %>
 
 
-<div id="map" class="map" style="width: 100%" data-markers="<%= @user_delivery_guy_marker.to_json %>">
+<div id="map" class="map" style="width: 100%" data-markers="<%= @users_customers_markers.to_json %>">
 </div>
