@@ -26,7 +26,7 @@ class DeliveriesController < ApplicationController
     @delivery = Delivery.new(delivery_params)
     @delivery.user = current_user
     if @delivery.save
-      redirect_to @delivery
+      redirect_to my_deliveries_path
     else
       render "deliveries/show"
     end
