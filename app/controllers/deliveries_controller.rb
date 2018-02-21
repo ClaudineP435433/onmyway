@@ -23,12 +23,12 @@ class DeliveriesController < ApplicationController
   end
 
   def create
-    @delivery = Delivery.new(delivery_params)
-    @delivery.user = current_user
+    @delivery = current_user.deliveries.new(delivery_params)
+    # @delivery.user = current_user unneeded due to above line syntax
     if @delivery.save
       redirect_to @delivery
     else
-      render "deliveries/show"
+      render :new
     end
   end
 
