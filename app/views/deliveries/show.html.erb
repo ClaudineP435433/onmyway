@@ -1,5 +1,3 @@
-
-
   <div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @delivery.restaurant.picture %>')">
     <div class="banner-content">
       <h1><%= @delivery.restaurant.name %></h1>
@@ -23,7 +21,10 @@
       <div class="card-delivery-test">
         <h4><%= "#{@delivery.user.first_name} #{@delivery.user.last_name}" %></h4>
         <%= cl_image_tag @delivery.user.picture, class: "card-user" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="wrapper-show">
+    <div id="map" style="width: 100%" class="map-show" data-markers="<%= @marker.to_json %>"></div>
+  </div>
