@@ -5,26 +5,26 @@
     </div>
   </div>
 
-<div class="wrapper2">
-  <div class="delivery-container">
-    <div class="card-booking">
-        <h3>Book your Delivery NOW</h3>
-        <%= simple_form_for [@delivery, @booking] do |f| %>
-          <%= f.input :content, label: "Description of your Booking" %>
-          <%= f.button :submit, class: "btn btn-primary"%>
-        <% end %>
-    </div>
-    <div class="card-delivery text-center">
-      <h6>This delivery closed at :</h6>
-      <h4 id="delivery-space"><%= @delivery.closing_at.strftime("%m/%d/%Y at %I:%M%p") %></h4>
-      <h6>Delivery will be done by :</h6>
-      <div class="card-delivery-test">
-        <h4><%= "#{@delivery.user.first_name} #{@delivery.user.last_name}" %></h4>
-        <%= image_tag "http://www.legorafi.fr/wp-content/uploads/2016/09/iStock_84615769_SMALL-e1474531457886-820x410.jpg", class: "card-user" %>
+  <div class="wrapper2">
+    <div class="delivery-container">
+      <div class="card-booking">
+          <h3>Book your Delivery NOW</h3>
+          <%= simple_form_for [@delivery, @booking] do |f| %>
+            <%= f.input :content, label: "Description of your Booking" %>
+            <%= f.button :submit, class: "btn btn-primary"%>
+          <% end %>
+      </div>
+      <div class="card-delivery text-center">
+        <h6>This delivery close at :</h6>
+        <h4 id="delivery-space"><%= @delivery.closing_at.strftime("%m/%d/%Y at %I:%M%p") %></h4>
+        <h6>Delivery will be done by :</h6>
+        <div class="card-delivery-test">
+          <h4><%= "#{@delivery.user.first_name} #{@delivery.user.last_name}" %></h4>
+          <%= image_tag "http://www.legorafi.fr/wp-content/uploads/2016/09/iStock_84615769_SMALL-e1474531457886-820x410.jpg", class: "card-user" %>
+        </div>
       </div>
     </div>
   </div>
-  <div id="map" style="width: 100%" data-markers="<%= @markers.to_json %>"></div>
-</div>
-
-
+  <div class="wrapper-show">
+    <div id="map" style="width: 100%" class="map-show" data-markers="<%= @marker.to_json %>"></div>
+  </div>

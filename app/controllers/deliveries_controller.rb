@@ -18,7 +18,7 @@ class DeliveriesController < ApplicationController
     @booking = Booking.new
     @restaurant = @delivery.restaurant
 
-    @markers = [
+    @marker = [
       {
         lat: @restaurant.latitude,
         lng: @restaurant.longitude
