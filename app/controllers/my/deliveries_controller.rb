@@ -11,10 +11,6 @@ class My::DeliveriesController < ApplicationController
   end
 
   def show
-    # pour l'adresse du livreur
-    @user_delivery_guy = current_user
-    @user_delivery_guy_marker = [{ lat: @user_delivery_guy.latitude, lng: @user_delivery_guy.longitude }]
-
 
     # pour l'adresse des clients
     @delivery = Delivery.find(params[:id])
@@ -22,21 +18,26 @@ class My::DeliveriesController < ApplicationController
     @users_customers = @bookings.map do |booking|
       User.find(booking.user_id)
     end
-    @users_customers_markers = @users_customers.map do |user|
+    @markers_show = @users_customers.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude,
-        color: "#0055ff"
+        lng: user.longitude
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
 
+    # pour l'adresse du livreur
+    @user_delivery_guy = current_user
+    @user_delivery_guy_marker = { lat: @user_delivery_guy.latitude, lng: @user_delivery_guy.longitude }
+
+
     # pour l'adresse du resto
     @restaurant = @delivery.restaurant
-    @restaurant_marker = [{ lat: @restaurant.latitude, lng: @restaurant.longitude }]
+    @restaurant_marker = { lat: @restaurant.latitude, lng: @restaurant.longitude }
 
 
-
+    @markers_show << @user_delivery_guy_marker
+    @markers_show << @restaurant_marker
   end
 
 
