@@ -8,7 +8,7 @@
   <div class="row">
     <% @deliveries.each do |delivery| %>
       <div class="col-xs-10 col-xs-offset-1">
-        <div class="card">
+        <div class="<%= delivery.done? ? 'card-done' : 'card' %>">
           <div class="card-my-delivery">
 
             <div class="card-my-delivery-resto" style="background-image: url('<%= cl_image_path delivery.restaurant.picture %>')">
