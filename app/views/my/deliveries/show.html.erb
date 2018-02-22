@@ -1,8 +1,9 @@
   <div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @delivery.restaurant.picture %>')">
     <div class="banner-content">
       <h1>Your today delivery is : <%= @restaurant.name %></h1>
-      <p><%= @restaurant.category.name %></p>
-      <p><%= @delivery.closing_at %></p>
+      <p class="small-font"><%= @restaurant.category.name %></p>
+      <p class="small-font"><%= @restaurant.address %></p>
+      <p class="small-font"><%= @delivery.closing_at %></p>
     </div>
   </div>
 
@@ -10,19 +11,12 @@
 <div class="container">
   <div class="wrapper">
     <div class="card">
-      <div class="my-show-card">
-        <h4>Your customers are :</h4>
-        <ul>
-          <% @bookings.each do |booking| %>
-            <li> <%= cl_image_tag booking.user.picture, class: "card-user" %><%= " #{booking.user.first_name} #{booking.user.last_name} | #{booking.user.address} | #{booking.content}" %> </li>
-          <% end %>
-        </ul>
-      </div>
+      <div class="card-my-delivery-button my-delivery">
 
-      <div class="card-my-delivery-button">
-        <div class="card-my-booking-status">
+        <div class="card-my-booking-status  ">
+
           <div class="<%= delivery_color_status(@delivery.status) %>">
-            <%= @delivery.status.capitalize %>
+             <%= @delivery.status.capitalize %>
           </div>
         </div>
 
@@ -32,6 +26,17 @@
           <% end %>
         <% end %>
       </div>
+
+      <div class="my-show-card">
+        <h4>Your orders are :</h4>
+        <ul>
+          <% @bookings.each do |booking| %>
+            <li> <%= cl_image_tag booking.user.picture, class: "card-user" %><%= " #{booking.user.first_name} #{booking.user.last_name} | #{booking.user.address} | #{booking.content}" %> </li>
+          <% end %>
+        </ul>
+      </div>
+
+
     </div>
 
     <div class="wrapper-show">
