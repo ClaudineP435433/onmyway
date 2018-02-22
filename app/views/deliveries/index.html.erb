@@ -23,7 +23,7 @@
             <div class="card-delivery-guy">
               <div class="card-delivery-text">
                 <p>Book before :</p>
-                <h5><%= delivery.closing_at.strftime("%m/%d/%Y at %I:%M%p") %></h5>
+                <h5><%= delivery.closing_at.strftime("%d/%m/%Y at %k:%M") %></h5>
               </div>
               <%= cl_image_tag delivery.user.picture, class: "card-user" %>
             </div>
