@@ -44,12 +44,6 @@
                       <%= delivery.status.capitalize %>
                     </div>
                   </div>
-
-                  <% if delivery.status == "in progress" %>
-                    <%= button_to done_my_delivery_path(delivery), method: :done, data: { confirm: "Do you confirm the delivery?" } do %>
-                        Delivered ? <i class="far fa-check-circle text-success"></i>
-                    <% end %>
-                  <% end %>
                 </div>
             </div>
           </div>
