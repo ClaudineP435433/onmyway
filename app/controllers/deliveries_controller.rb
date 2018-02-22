@@ -3,7 +3,8 @@ class DeliveriesController < ApplicationController
   before_action :find_delivery, only: [:show, :done]
 
   def index
-    @deliveries = Delivery.all
+    #@deliveries = Delivery.all
+    @deliveries = Delivery.where(status: [:pending])
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
 
     @markers = @restaurants.map do |restaurant|
@@ -32,9 +33,15 @@ class DeliveriesController < ApplicationController
 
   def create
     @delivery = current_user.deliveries.new(delivery_params)
+
     @delivery.closing_at = DateTime.parse(params[:datetime])
+
+  
+
     # @delivery.user = current_user unneeded due to above line syntax
     if @delivery.save
+      @delivery.pending!
+      @delivery.save
       redirect_to my_deliveries_path
     else
       render :new

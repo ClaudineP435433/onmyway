@@ -5,10 +5,15 @@
 </div>
 
 <div class="container">
+
+  <div class="<%= @deliveries.empty? ? 'card-visible' : 'card-transparent' %>">
+    <h3>You have currently no deliveries planned ...</h3>
+  </div>
+
   <div class="row">
     <% @deliveries.each do |delivery| %>
       <div class="col-xs-10 col-xs-offset-1">
-        <div class="card">
+        <div class="<%= delivery.done? ? 'card-done' : 'card' %>">
           <div class="card-my-delivery">
 
             <div class="card-my-delivery-resto" style="background-image: url('<%= cl_image_path delivery.restaurant.picture %>')">
@@ -44,12 +49,10 @@
                       <%= delivery.status.capitalize %>
                     </div>
                   </div>
+<<<<<<< HEAD
+=======
 
-                  <% if delivery.status == "in progress" %>
-                    <%= button_to done_my_delivery_path(delivery), method: :done, data: { confirm: "Do you confirm the delivery?" } do %>
-                        Delivered ? <i class="far fa-check-circle text-success"></i>
-                    <% end %>
-                  <% end %>
+>>>>>>> master
                 </div>
             </div>
           </div>

@@ -18,6 +18,11 @@
     }
   }
 
+.card-done {
+  @extend .card;
+  opacity: 0.4;
+}
+
 .card-restaurant {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -215,6 +220,7 @@
   justify-content: center;
   height: 15%;
   padding-top: 8px;
+  width: 500px;
   button {
   }
   button:hover {
@@ -231,4 +237,16 @@
 
 .my-delivery {
   border-bottom: 1px dotted rgba(10,10,10,0.1);
+}
+
+
+.card-visible {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: calc(100vh - 430px);
+}
+
+.card-transparent {
+  display: none;
 }
