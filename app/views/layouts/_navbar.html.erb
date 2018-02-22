@@ -4,6 +4,14 @@
   <img src="https://alatoo-frozenfood.co.uk/wp-content/uploads/2017/11/58209.png" alt="logo">
   <% end %>
 
+<div class="search">
+  <%= form_tag root_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find your city's restaurant" %>
+  <% end %>
+</div>
 
 
   <!-- Right Navigation -->
