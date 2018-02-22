@@ -19,7 +19,8 @@
              <%= @delivery.status.capitalize %>
           </div>
         </div>
-        <% if @delivery.status == "in_progress" %>
+
+        <% if @delivery.status == "in progress" %>
           <%= button_to done_my_delivery_path(@delivery), id: "sweet-alert-demo", method: :done do %>
               Delivered ?
           <% end %>
