@@ -48,6 +48,7 @@
 
 .card-delivery-guy {
   height: 120px;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -211,4 +212,8 @@
   button:hover {
     color: $green;
   }
+}
+
+.my-show-card {
+  padding: 10px;
 }
