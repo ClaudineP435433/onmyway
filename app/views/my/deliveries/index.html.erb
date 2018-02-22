@@ -5,6 +5,11 @@
 </div>
 
 <div class="container">
+
+  <div class="<%= @deliveries.empty? ? 'card-visible' : 'card-transparent' %>">
+    <h3>You have currently no deliveries planned ...</h3>
+  </div>
+
   <div class="row">
     <% @deliveries.each do |delivery| %>
       <div class="col-xs-10 col-xs-offset-1">

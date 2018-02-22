@@ -5,6 +5,11 @@
   </div>
 
 <div class="container">
+
+  <div class="<%= @bookings.empty? ? 'card-visible' : 'card-transparent' %>">
+    <h3>You have currently no bookings ...</h3>
+  </div>
+
   <div class="row">
     <% @bookings.each do |booking| %>
       <div class="col-xs-10 col-xs-offset-1">
