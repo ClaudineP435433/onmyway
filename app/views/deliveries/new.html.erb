@@ -7,16 +7,15 @@
         <%= simple_form_for @delivery do |f| %>
           <%= f.error_notification %>
           <%= f.association :restaurant, prompt: "Choose a restaurant", required: true %>
-
           <%= f.input :closing_at do %>
-    <div class="form-group">
-      <div class="input-group date" id="datetimepicker">
-        <%= text_field_tag :datetime, nil, class: 'form-control', data: { date_format: 'DD/MM/YYYY hh:mm' } %>
-        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-      </div>
-          <%= f.button :submit %>
-  <% end %>
-      <% end %>
+            <div class="form-group">
+            <div class="input-group date" id="datetimepicker">
+              <%= text_field_tag :datetime, nil, class: 'form-control', data: { date_format: 'DD/MM/YYYY hh:mm' } %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+              <%= f.button :submit %>
+         <% end %>
+        <% end %>
       </div>
     </div>
   </div>
