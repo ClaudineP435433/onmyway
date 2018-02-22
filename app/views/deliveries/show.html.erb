@@ -17,7 +17,7 @@
     </div>
     <div class="card-delivery text-center">
       <h6>This delivery closed at :</h6>
-      <h4 id="delivery-space"><%= @delivery.closing_at.strftime("%m/%d/%Y at %I:%M%p") %></h4>
+      <h4 id="delivery-space"><%= @delivery.closing_at.strftime("%d/%m/%Y at %k:%M") %></h4>
       <h6>Delivery will be done by :</h6>
       <div class="card-delivery-test">
         <h4><%= "#{@delivery.user.first_name} #{@delivery.user.last_name}" %></h4>
