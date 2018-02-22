@@ -112,6 +112,14 @@
 .card-my-booking-resto-text {
   padding-left: 15px;
   width: 200px;
+  h4 {
+    font-size: 29px;
+    font-weight: bolder;
+    margin-top: 20px;
+  }
+  p {
+    font-size: 14px;
+  }
 
 }
 
@@ -146,9 +154,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  button {
-    border: none;
-  }
 }
 
 .card-my-delivery-resto {
@@ -170,13 +175,17 @@
 }
 
 .card-my-delivery-bookings {
-  height: 90%;
+  height: 85%;
   border-bottom: 1px dotted rgba(10,10,10,0.1);
 }
 
 .card-my-delivery-details {
   flex: 1;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 
@@ -203,11 +212,10 @@
 .card-my-delivery-button {
   display: flex;
   align-items: center;
-  justify-content: right;
-  height: 10%;
-  padding-top: 6px;
+  justify-content: center;
+  height: 15%;
+  padding-top: 8px;
   button {
-    border: none;
   }
   button:hover {
     color: $green;
