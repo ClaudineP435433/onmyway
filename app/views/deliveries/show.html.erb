@@ -6,7 +6,7 @@
     </div>
   </div>
 
-<div class="wrapper2">
+<div class="wrapper2 hidden-xs hidden-sm">
   <div class="delivery-container">
     <div class="card-booking">
         <h3>Book your Delivery NOW</h3>
@@ -23,9 +23,41 @@
         <h4><%= "#{@delivery.user.first_name} #{@delivery.user.last_name}" %></h4>
         <%= cl_image_tag @delivery.user.picture, class: "card-user" %>
         </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper2 hidden-md hidden-lg">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card">
+          <h3>Book your Delivery NOW</h3>
+          <%= simple_form_for [@delivery, @booking] do |f| %>
+            <%= f.input :content, label: "Description of your Booking" %>
+            <%= f.button :submit, class: "btn btn-primary"%>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="card text-center">
+          <h6>This delivery closed at :</h6>
+          <h4><%= @delivery.closing_at.strftime("%d/%m/%Y at %k:%M") %></h4>
+          <h6>Delivery will be done by :</h6>
+          <h4><%= "#{@delivery.user.first_name} #{@delivery.user.last_name}" %></h4>
+          <%= cl_image_tag @delivery.user.picture, class: "card-user" %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="wrapper-show">
-    <div id="map" style="width: 100%" class="map-show" data-markers="<%= @marker.to_json %>"></div>
-  </div>
+
+</div>
+
+
+
+<div class="wrapper-show">
+  <div id="map" style="width: 100%" class="map-show" data-markers="<%= @marker.to_json %>"></div>
+</div>
+
