@@ -220,6 +220,7 @@
   justify-content: center;
   height: 15%;
   padding-top: 8px;
+  width: 500px;
   button {
   }
   button:hover {
@@ -236,4 +237,16 @@
 
 .my-delivery {
   border-bottom: 1px dotted rgba(10,10,10,0.1);
+}
+
+
+.card-visible {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: calc(100vh - 430px);
+}
+
+.card-transparent {
+  display: none;
 }
