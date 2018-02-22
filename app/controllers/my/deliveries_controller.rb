@@ -21,24 +21,26 @@ class My::DeliveriesController < ApplicationController
     @markers_show = @users_customers.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude
+        lng: user.longitude,
+        icon: view_context.image_path("icon-customer.png")
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
 
     # pour l'adresse du livreur
     @user_delivery_guy = current_user
-    @user_delivery_guy_marker = { lat: @user_delivery_guy.latitude, lng: @user_delivery_guy.longitude }
+    @user_delivery_guy_marker = { lat: @user_delivery_guy.latitude, lng: @user_delivery_guy.longitude, icon: view_context.image_path("icon-livreur.png") }
 
 
     # pour l'adresse du resto
     @restaurant = @delivery.restaurant
-    @restaurant_marker = { lat: @restaurant.latitude, lng: @restaurant.longitude }
+    @restaurant_marker = { lat: @restaurant.latitude, lng: @restaurant.longitude, icon: view_context.image_path("icon-restaurant.png") }
 
 
     @markers_show << @user_delivery_guy_marker
     @markers_show << @restaurant_marker
-  end
 
+
+    end
 
 end
