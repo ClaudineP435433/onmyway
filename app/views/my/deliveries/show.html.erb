@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <% if @delivery.status == "in progress" %>
+        <% if @delivery.status == "in_progress" %>
           <%= button_to done_my_delivery_path(@delivery), method: :done, data: { confirm: "Do you confirm the delivery?" } do %>
               Delivered ? <i class="far fa-check-circle text-success"></i>
           <% end %>
