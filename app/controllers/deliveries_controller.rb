@@ -33,9 +33,15 @@ class DeliveriesController < ApplicationController
 
   def create
     @delivery = current_user.deliveries.new(delivery_params)
-    @delivery.pending!
+
+    @delivery.closing_at = DateTime.parse(params[:datetime])
+
+  
+
     # @delivery.user = current_user unneeded due to above line syntax
     if @delivery.save
+      @delivery.pending!
+      @delivery.save
       redirect_to my_deliveries_path
     else
       render :new
