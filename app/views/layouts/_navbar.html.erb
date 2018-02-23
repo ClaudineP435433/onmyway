@@ -9,12 +9,11 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-
-    <div class="search">
-      <%= render 'deliveries/search', query: params[:query] %>
-    </div>
-
-
+    <% if current_page?(root_path) %>
+      <div class="search">
+        <%= render 'deliveries/search', query: params[:query] %>
+      </div>
+    <% end %>
 
 
     <% if user_signed_in? %>

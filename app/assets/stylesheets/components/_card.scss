@@ -162,6 +162,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+
+}
+
+.trash {
+   color: rgba(10,10,10,0.7);
+   text-decoration: none;
+   &:hover {
+    color: rgba(10,10,10,1);
+   }
 }
 
 .card-my-delivery-resto {

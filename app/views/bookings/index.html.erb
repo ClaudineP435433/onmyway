@@ -13,7 +13,7 @@
   <div class="row">
     <% @bookings.each do |booking| %>
       <div class="col-xs-10 col-xs-offset-1">
-        <div class="card">
+        <div class="card" data-booking-id="<%= booking.id %>">
           <div class="card-my-booking">
             <div class="card-my-booking-resto" style="background-image: url('<%= cl_image_path booking.delivery.restaurant.picture %>')">
             </div>
@@ -32,8 +32,8 @@
               <p><%= booking.delivery.closing_at.strftime("%d/%m/%Y at %k:%M") %></p>
             </div>
             <div class="card-my-booking-trash">
-              <%= button_to booking_path(booking), method: :delete, data: { confirm: "Do you want to delete this booking ?" } do %>
-                  <i class="fas fa-trash fa-lg test3"></i>
+              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Do you want to delete this booking ?" }, remote: true do %>
+                  <i class="far fa-trash-alt fa-lg trash"></i>
               <% end %>
             </div>
           </div>
@@ -42,3 +42,6 @@
     <% end %>
   </div>
 </div>
+
+
+
