@@ -3,7 +3,7 @@
       <h1>Your today delivery is : <%= @restaurant.name %></h1>
       <p class="small-font"><%= @restaurant.category.name %></p>
       <p class="small-font"><%= @restaurant.address %></p>
-      <p class="small-font"><%= @delivery.closing_at %></p>
+      <p class="small-font">Closing at : <%= @delivery.closing_at.strftime("%d/%m/%Y at %k:%M") %></p>
     </div>
   </div>
 
@@ -11,6 +11,20 @@
 <div class="container">
   <div class="wrapper">
     <div class="card">
+
+      <div class="my-show-card">
+        <h4>Bookings are :</h4>
+        <ul class="list-unstyled">
+          <% @bookings.each do |booking| %>
+            <li>
+              <h6><%= cl_image_tag booking.user.picture, class: "card-user" %>
+              <%= "#{booking.user.first_name} #{booking.user.last_name}" %></h6>
+              <p><%= "#{booking.user.address}" %></p>
+              <h6 id="message-content"><%= "#{booking.content}" %> </h6>
+            </li>
+          <% end %>
+        </ul>
+      </div>
       <div class="card-my-delivery-button my-delivery">
 
         <div class="card-my-booking-status  ">
@@ -27,14 +41,7 @@
         <% end %>
       </div>
 
-      <div class="my-show-card">
-        <h4>Your orders are :</h4>
-        <ul>
-          <% @bookings.each do |booking| %>
-            <li> <%= cl_image_tag booking.user.picture, class: "card-user" %><%= " #{booking.user.first_name} #{booking.user.last_name} | #{booking.user.address} | #{booking.content}" %> </li>
-          <% end %>
-        </ul>
-      </div>
+
 
     </div>
 
