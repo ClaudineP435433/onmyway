@@ -26,6 +26,13 @@
 
             <div class="card-my-delivery-details">
               <div class="card-my-delivery-bookings">
+                <div class="my-delivery-message">
+                  <% if delivery.bookings.empty? %>
+                    <%= render "my/deliveries/message" %>
+                  <% end %>
+                </div>
+
+
                 <% delivery.bookings.each do |booking| %>
                     <div class="card-my-delivery-booking">
                       <div class="card-my-delivery-booking-avatar">
