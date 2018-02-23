@@ -2,11 +2,20 @@ class DeliveriesController < ApplicationController
 
   before_action :find_delivery, only: [:show, :done]
 
-  def index
-    #@deliveries = Delivery.all
-    @deliveries = Delivery.where(status: [:pending])
-    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
 
+  def index
+    if params[:query].present?
+      sql_query = " \
+      deliveries.status = 0 \
+      AND (restaurants.address @@ :query \
+      OR restaurants.name @@ :query) \
+      "
+      @deliveries = Delivery.joins(:restaurant).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @deliveries = Delivery.where(status: [:pending])
+    end
+
+    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -33,9 +42,7 @@ class DeliveriesController < ApplicationController
 
   def create
     @delivery = current_user.deliveries.new(delivery_params)
-
     if params[:datetime].empty?
-
       render :new
     else
       @delivery.closing_at = DateTime.parse(params[:datetime])

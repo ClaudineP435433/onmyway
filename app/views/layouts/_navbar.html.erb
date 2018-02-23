@@ -9,6 +9,14 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+
+    <div class="search">
+      <%= render 'deliveries/search', query: params[:query] %>
+    </div>
+
+
+
+
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
@@ -43,8 +51,6 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "search bar to implement", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
