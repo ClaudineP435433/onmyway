@@ -9,6 +9,9 @@
 <div class="wrapper">
   <div class="container-fluid">
     <div class="row">
+      <% if @deliveries.empty? %>
+        <h4>No deliveries available...</h4>
+      <% end %>
       <% @deliveries.each do |delivery| %>
         <div class="col-xs-12 col-sm-12 col-md-4">
           <div class="card">

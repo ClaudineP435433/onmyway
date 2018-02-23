@@ -27,7 +27,7 @@ restaurants_data = [
     },
 
   {
-    name: "Chez maitre Tang",
+    name: "Fufu",
     category_id: Category.third.id,
     address: "37 Rue Saint-Rémi, 33000 Bordeaux",
     remote_picture_url: "https://res.cloudinary.com/didys4vkv/image/upload/v1519206548/cuisine-vietnamienne.jpg"

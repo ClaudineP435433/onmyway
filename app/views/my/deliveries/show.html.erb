@@ -34,14 +34,12 @@
           </div>
         </div>
 
-        <% if @delivery.status == "in progress" %>
+        <% if @delivery.status == "in_progress" %>
           <%= button_to done_my_delivery_path(@delivery), id: "sweet-alert-demo", method: :done do %>
               Delivered ?
           <% end %>
         <% end %>
       </div>
-
-
 
     </div>
 
