@@ -6,6 +6,7 @@ class Delivery < ApplicationRecord
 
   enum status: [ :pending, :in_progress, :done ]
   scope :ordered_by_status, -> { order(status: :asc) }
+  scope :ordered_by_date, -> { order(closing_at: :asc) }
 
   include PgSearch
   pg_search_scope :search_by_address,
