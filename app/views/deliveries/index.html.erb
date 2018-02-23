@@ -15,7 +15,6 @@
       <% @deliveries.each do |delivery| %>
         <div class="col-xs-12 col-sm-12 col-md-4">
           <div class="card">
-
             <div class="card-restaurant" style="background-image: url('<%= cl_image_path delivery.restaurant.picture %>')">
               <div class="card-description">
                 <h2><%= delivery.restaurant.name %></h2>
