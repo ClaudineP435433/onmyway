@@ -1,6 +1,6 @@
   <div class="banner banner-smaller" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @delivery.restaurant.picture %>')">
     <div class="banner-content">
-      <h1>Your today delivery is : <%= @restaurant.name %></h1>
+      <h1><p>Your today delivery is</p><%= @restaurant.name %></h1>
       <p class="small-font"><%= @restaurant.category.name %></p>
       <p class="small-font"><%= @restaurant.address %></p>
       <p class="small-font">Closing at : <%= @delivery.closing_at.strftime("%d/%m/%Y at %k:%M") %></p>
