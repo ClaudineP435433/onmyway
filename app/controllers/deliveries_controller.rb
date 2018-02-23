@@ -5,7 +5,12 @@ class DeliveriesController < ApplicationController
 
   def index
     if params[:query].present?
-      @deliveries = Delivery.where("status = ? AND address = ?", 0, params[:query])
+      sql_query = " \
+      deliveries.status = 0 \
+      AND (restaurants.address @@ :query \
+      OR restaurants.name @@ :query) \
+      "
+      @deliveries = Delivery.joins(:restaurant).where(sql_query, query: "%#{params[:query]}%")
     else
       @deliveries = Delivery.where(status: [:pending])
     end

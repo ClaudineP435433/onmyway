@@ -4,18 +4,18 @@
   <img src="https://alatoo-frozenfood.co.uk/wp-content/uploads/2017/11/58209.png" alt="logo">
   <% end %>
 
-<div class="search">
-  <%= form_tag root_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find your city's restaurant" %>
-  <% end %>
-</div>
 
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+
+    <div class="search">
+      <%= render 'deliveries/search', query: params[:query] %>
+    </div>
+
+
+
 
     <% if user_signed_in? %>
 
@@ -51,8 +51,6 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "search bar to implement", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
