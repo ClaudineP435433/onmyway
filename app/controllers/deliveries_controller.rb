@@ -17,7 +17,7 @@ class DeliveriesController < ApplicationController
       @deliveries = Delivery.where(status: [:pending]).ordered_by_date
     end
 
-    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+    @restaurants = @deliveries.map(&:restaurant)
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
