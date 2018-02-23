@@ -12,9 +12,9 @@ class DeliveriesController < ApplicationController
       AND (restaurants.address @@ :query \
       OR restaurants.name @@ :query) \
       "
-      @deliveries = Delivery.joins(:restaurant).where(sql_query, query: "%#{params[:query]}%")
+      @deliveries = Delivery.joins(:restaurant).where(sql_query, query: "%#{params[:query]}%").ordered_by_date
     else
-      @deliveries = Delivery.where(status: [:pending])
+      @deliveries = Delivery.where(status: [:pending]).ordered_by_date
     end
 
     @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
