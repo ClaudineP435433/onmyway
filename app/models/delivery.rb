@@ -5,18 +5,15 @@ class Delivery < ApplicationRecord
   validates :closing_at, presence: true
 
   enum status: [ :pending, :in_progress, :done ]
-
   scope :ordered_by_status, -> { order(status: :asc) }
 
-
-  #def status
-   # if delivered_at.present?
-    #  "done"
-   # elsif DateTime.now < closing_at
-   #   "pending"
-   # else
-   #   "in progress"
-   # end
-  #end
+  include PgSearch
+  pg_search_scope :search_by_address,
+  associated_against: {
+    restaurant: [ :address ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 
 end

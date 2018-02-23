@@ -5,6 +5,11 @@
 </div>
 
 <div class="container">
+
+  <div class="<%= @deliveries.empty? ? 'card-visible' : 'card-transparent' %>">
+    <h3>You have currently no deliveries planned ...</h3>
+  </div>
+
   <div class="row">
     <% @deliveries.each do |delivery| %>
       <div class="col-xs-10 col-xs-offset-1">
@@ -21,6 +26,13 @@
 
             <div class="card-my-delivery-details">
               <div class="card-my-delivery-bookings">
+                <div class="my-delivery-message">
+                  <% if delivery.bookings.empty? %>
+                    <%= render "my/deliveries/message" %>
+                  <% end %>
+                </div>
+
+
                 <% delivery.bookings.each do |booking| %>
                     <div class="card-my-delivery-booking">
                       <div class="card-my-delivery-booking-avatar">
@@ -44,10 +56,6 @@
                       <%= delivery.status.capitalize %>
                     </div>
                   </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> master
                 </div>
             </div>
           </div>
